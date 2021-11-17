@@ -95,6 +95,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::where('id',$id)->delete();
+        return redirect(route('admin.category.index'))->with('success','Category Deleted Success!');
     }
 }

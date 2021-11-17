@@ -14,7 +14,11 @@
             <td>{{$c->name}}</td>
             <td>
                 <a href="{{route('admin.category.edit',$c->id)}}" class="badge badge-success">Update</a>
-                <a href="" class="badge badge-danger">Delete</a>
+                <form action="{{route('admin.category.destroy',$c->id)}}" method="post" class="d-inline" id="delete{{$c->slug}}">
+                @csrf
+                @method('DELETE')
+                    <a href="#{{$c->slug}}" onclick="confirm('Delete?')? document.getElementById('delete{{$c->slug}}').submit():false;" class="badge badge-danger">Delete</a>
+                </form>
             </td>
         </tr>
         @endforeach
