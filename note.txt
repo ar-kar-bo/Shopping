@@ -1,0 +1,18 @@
+user
+role name email password image
+
+category
+slug   name
+
+product
+category_id   slug   name  image   description price     view_count()
+
+product_cart
+user_id      product_id    quantity
+
+product_order
+user_id     product_id       quantity
+
+product_save
+product_id      user_id
+
