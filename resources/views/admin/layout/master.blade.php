@@ -27,10 +27,10 @@
                             <a href="#">
                                 <li class="list-group-item">Dashboard</li>
                             </a>
-                            <a href="#">
+                            <a href="{{route('admin.category.index')}}">
                                 <li class="list-group-item">Category</li>
                             </a>
-                            <a href="#">
+                            <a href="{{route('admin.product.index')}}">
                                 <li class="list-group-item">Product</li>
                             </a>
                             <a href="#">

@@ -11,4 +11,5 @@ Route::get('/profile','PageController@profile');
 Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
     Route::get('/','PageController@dashboard');
     Route::resource('/category', 'CategoryController');
+    Route::resource('/product', 'ProductController');
 });
