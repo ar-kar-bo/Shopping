@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category')->orderBy('id','DESC')->latest()->paginate(10);
+        $products = Product::with('category')->orderBy('id','DESC')->latest()->paginate(7);
         return view('admin.product.index',compact('products'));
     }
 
@@ -56,7 +56,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::with('category')->where('id',$id)->first();
+        return view('admin.product.show',compact('product'));
     }
 
     /**
