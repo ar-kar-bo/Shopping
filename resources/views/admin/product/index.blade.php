@@ -1,6 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
-<a href="{{route('admin.product.create')}}" class="btn btn-sm btn-primary">Create Product</a>
+<div class="card">
+    <div class="card-body">
+        <a href="{{route('admin.product.create')}}" class="btn btn-sm btn-primary">Create Product</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -19,8 +21,9 @@
             </td>
             <td>{{$p->category->name}}</td>
             <td>
-                <a href="{{route('admin.product.show',$p->id)}}" class="badge badge-dark text-white">Detail</a>
+
                 <a href="{{route('admin.product.edit',$p->id)}}" class="badge badge-success">Update</a>
+                <a href="{{route('admin.product.show',$p->id)}}" class="badge badge-dark text-white">Detail</a>
                 <form action="{{route('admin.product.destroy',$p->id)}}" method="post" class="d-inline" id="delete{{$p->slug}}">
                 @csrf
                 @method('DELETE')
@@ -32,4 +35,7 @@
     </tbody>
 </table>
 {{$products->links()}}
+    </div>
+</div>
+
 @endsection

@@ -1,6 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
-<a href="{{route('admin.category.index')}}" class="btn btn-sm btn-primary">All Category</a>
+<div class="card">
+    <div class="card-body">
+        <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-primary">All Category</a>
 <form action="{{route('admin.category.update',$category->id)}}" method="post">
     @csrf
     @method('PUT')
@@ -10,4 +12,6 @@
     </div>
     <input type="submit" value="Update" class="btn btn-sm btn-dark">
 </form>
+    </div>
+</div>
 @endsection

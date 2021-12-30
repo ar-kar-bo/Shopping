@@ -20,7 +20,7 @@ class ProductFactory extends Factory
             'name'=>$this->faker->name,
             'image'=>'image/user.png',
             'description'=>$this->faker->text,
-            'price'=>100,
+            'price'=>20*random_int(1,10)*random_int(1,50),
             'view_count'=>90
         ];
     }

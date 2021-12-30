@@ -17,7 +17,7 @@ class ProductOrderFactory extends Factory
         return [
             'user_id'=>1,
             'product_id'=>Product::all()->random()->id,
-            'quantity'=>1
+            'quantity'=>random_int(1,12)
         ];
     }
 }

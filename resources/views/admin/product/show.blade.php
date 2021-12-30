@@ -1,6 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
-<a href="{{route('admin.product.index')}}" class="btn btn-sm btn-primary">All Product</a>
+<div class="card">
+    <div class="card-body">
+        <a href="{{route('admin.product.index')}}" class="btn btn-sm btn-primary">All Product</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -25,4 +27,6 @@
 <p>
     {{$product->description}}
 </p>
+    </div>
+</div>
 @endsection

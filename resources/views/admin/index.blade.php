@@ -1,6 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
-<a href="" class="btn btn-sm btn-primary">Create Category</a>
+<div class="card">
+    <div class="card-body">
+        <a href="" class="btn btn-sm btn-primary">Create Category</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -15,4 +17,6 @@
         </tr>
     </tbody>
 </table>
+    </div>
+</div>
 @endsection

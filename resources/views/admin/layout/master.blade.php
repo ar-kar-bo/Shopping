@@ -33,20 +33,22 @@
                             <a href="{{route('admin.product.index')}}">
                                 <li class="list-group-item">Product</li>
                             </a>
-                            <a href="#">
-                                <li class="list-group-item">Order</li>
+                            <a href="{{url('admin/order/panding')}}">
+                                <li class="list-group-item">Panding Order</li>
+                            </a>
+                            <a href="{{url('admin/order/complete')}}">
+                                <li class="list-group-item">Complete Order</li>
+                            </a>
+                            <a href="{{url('admin/user')}}">
+                                <li class="list-group-item">User List</li>
                             </a>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        @include('inc.error')
-                        @yield('content')
-                    </div>
-                </div>
+                @include('inc.error')
+                @yield('content')
             </div>
         </div>
     </div>

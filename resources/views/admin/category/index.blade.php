@@ -1,6 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
-<a href="{{route('admin.category.create')}}" class="btn btn-sm btn-primary">Create Category</a>
+<div class="card">
+    <div class="card-body">
+        <a href="{{route('admin.category.create')}}" class="btn btn-sm btn-primary">Create Category</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -24,4 +26,6 @@
         @endforeach
     </tbody>
 </table>
+    </div>
+</div>
 @endsection
