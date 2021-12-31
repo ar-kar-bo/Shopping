@@ -1,6 +1,9 @@
 @extends('admin.layout.master')
 @section('content')
 <div class="card">
+    <div class="card-header">
+        Pending Orders
+    </div>
     <div class="card-body">
         <table class="table table-striped">
             <thead>

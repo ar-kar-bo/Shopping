@@ -10,6 +10,11 @@
     <link rel="stylesheet"
             href="https://demos.creative-tim.com/argon-dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/argon-dashboard/assets/css/argon.min.css?v=1.2.0">
+    <style>
+        body{
+            margin-top: 30px;
+        }
+    </style>
 
 </head>
 
@@ -24,7 +29,7 @@
                             <a href="#">
                                 <li class="list-group-item bg-primary text-white">Admin Management</li>
                             </a>
-                            <a href="#">
+                            <a href="{{url('/admin')}}">
                                 <li class="list-group-item">Dashboard</li>
                             </a>
                             <a href="{{route('admin.category.index')}}">
@@ -41,6 +46,9 @@
                             </a>
                             <a href="{{url('admin/user')}}">
                                 <li class="list-group-item">User List</li>
+                            </a>
+                            <a href="{{url('admin/logout')}}">
+                                <li class="list-group-item">Logout</li>
                             </a>
                         </ul>
                     </div>

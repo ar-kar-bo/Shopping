@@ -19,6 +19,19 @@
                         <input type="submit" value="Filter">
                     </div>
                 </form>
+                @if (isset(request()->start_date))
+                    <h4 class="text text-warning">
+                        Between
+                        <b>
+                            {{request()->start_date}}
+                        </b>
+                        to
+                        <b>
+                            {{request()->start_date}}
+                        </b>
+                        <a href="{{url('admin/order/complete')}}" class="badge badge-primary">Show All</a>
+                    </h4>
+                @endif
             </div>
         </div>
         <table class="table table-striped">
@@ -31,6 +44,7 @@
                     <th>Status</th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach ($orders as $order)
                 <tr>

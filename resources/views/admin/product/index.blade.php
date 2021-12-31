@@ -1,8 +1,12 @@
 @extends('admin.layout.master')
 @section('content')
 <div class="card">
-    <div class="card-body">
+    <div class="card-header">
+        <h4>Product</h4>
         <a href="{{route('admin.product.create')}}" class="btn btn-sm btn-primary">Create Product</a>
+
+    </div>
+    <div class="card-body">
 <table class="table table-striped">
     <thead>
         <tr>

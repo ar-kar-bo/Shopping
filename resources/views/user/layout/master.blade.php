@@ -37,8 +37,8 @@
                             User
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Login</a>
-                            <a class="dropdown-item" href="#">Register</a>
+                            <a class="dropdown-item" href="{{url('/login')}}">Login</a>
+                            <a class="dropdown-item" href="{{url('/register')}}">Register</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Welcome Guy!</a>
                         </div>
@@ -66,8 +66,8 @@
                         recusandae quasi tempore placeat aliquam autem, a soluta nisi totam
                         temporibus dolorem!
                     </p>
-                    <a href="" class="btn btn-outline-primary">SignUp</a>
-                    <a href="" class="btn btn-primary">Login</a>
+                    <a href="{{url('/register')}}" class="btn btn-outline-primary">SignUp</a>
+                    <a href="{{url('/login')}}" class="btn btn-primary">Login</a>
                 </div>
                 <div class="col-md-6 text-center">
                     <img class=""
