@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -15,9 +17,20 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        if(Auth::attempt($request->only('email','password'))){
-            return redirect(url('/user'))->with('success','You are Login As User!');
+        //check email exist
+        if (User::where('email',$request->email)->first()) {
+            //attempt login
+            if(Auth::attempt($request->only('email','password'))){
+                return redirect(url('/'));
+            }else{
+                return redirect(url('/login'))->with('danger','Password Incorrect!');
+            }
+        } else {
+            //redirect
+            return redirect(url('/login'))->with('danger','Email Not Found!');
         }
+
+
     }
 
     public function showRegister()
@@ -27,7 +40,18 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
-        return $request;
+        $file = $request->file('image');
+        $file_name = uniqid(time()).$file->getClientOriginalName();
+        $file_path = 'image/'.$file_name;
+        $file->storeAs('image',$file_name);
+
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password),
+            'image'=>$file_path
+        ]);
+        return redirect(url('/login'))->with('success','Register Success. Please Login!');
     }
 
     public function logout()

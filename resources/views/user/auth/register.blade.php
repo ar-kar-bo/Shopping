@@ -4,7 +4,7 @@
                 Register
             </div>
             <div class="card-body">
-                <form action="{{url('/register')}}" method="post">
+                <form action="{{url('/register')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Enter Name</label>
@@ -19,7 +19,7 @@
                         <input type="password" id="password" name="password" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="file">Enter Email</label>
+                        <label for="file">Choose Image</label>
                         <input type="file" name="image" class="form-control">
                     </div>
                     <div class="form-group">
