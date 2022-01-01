@@ -26,10 +26,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home </a>
+                        <a class="nav-link" href="{{url('/')}}">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Your Order</a>
+                        <a class="nav-link" href="{{url('/order')}}">Your Order</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -53,8 +53,8 @@
                         </a>
                     </li>
                 </ul>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="form-inline" method="get" action="{{url('/product/search')}}">
+                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>
@@ -123,10 +123,12 @@
 
                             </li>
                             @foreach ($category as $c)
-                            <li class="list-group-item">
-                                {{$c->name}}
-                                <span class="badge badge-primary float-right">{{$c->product_count}}</span>
-                            </li>
+                            <a href="{{url('/product/category/'.$c->slug)}}">
+                                <li class="list-group-item">
+                                    {{$c->name}}
+                                    <span class="badge badge-primary float-right">{{$c->product_count}}</span>
+                                </li>
+                            </a>
                             @endforeach
 
                         </ul>

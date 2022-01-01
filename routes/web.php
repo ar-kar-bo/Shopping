@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>'ShareData'],function(){
     Route::get('/','PageController@index');
+    Route::get('/product/category/{slug}','PageController@byCategory');
+    Route::get('/product/search','PageController@search');
 
     #User Auth
     Route::get('/login','User\AuthController@showLogin');
@@ -22,9 +24,12 @@ Route::group(['middleware'=>'ShareData'],function(){
     Route::get('/cart','PageController@cart');
 
     Route::get('/order/make','PageController@makeOrder');
+    Route::get('/order/pending','PageController@pendingOrder');
+    Route::get('/order/complete','PageController@completeOrder');
     Route::get('/order','PageController@order');
 
     Route::get('/profile','PageController@profile');
+    Route::put('/profile/update','PageController@update');
 });
 
 

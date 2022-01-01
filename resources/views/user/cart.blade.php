@@ -8,7 +8,7 @@
                 <th>Name</th>
                 <th>Image</th>
                 <th>Quantity</th>
-                <th>Product Price</th>
+                <th>Total Price</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
                     {{$c->quantity}}
                 </td>
                 <td>
-                    {{$c->product->price}}
+                    {{$c->product->price*$c->quantity}}
                 </td>
             </tr>
             @endforeach
