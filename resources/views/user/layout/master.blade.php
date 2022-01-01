@@ -47,9 +47,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+                        <a class="nav-link" href="{{url('/cart')}}" tabindex="-1" aria-disabled="true">
                             Cart
-                            <small class="badge badge-danger">7</small>
+                            <small class="badge badge-danger">{{$cart_count}}</small>
                         </a>
                     </li>
                 </ul>
@@ -91,12 +91,26 @@
                 <div class="card">
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item bg-dark text-white">
-                                Your Order List
-                            </li>
-                            <li class="list-group-item bg-danger text-white">
-                                Your Profile Info
-                            </li>
+                            <a href="{{url('/cart')}}">
+                                <li class="list-group-item bg-dark text-white">
+                                    Your Cart List
+                                </li>
+                            </a>
+                            <a href="{{url('/order/pending')}}">
+                                <li class="list-group-item bg-dark text-white">
+                                    Your Pending Order List
+                                </li>
+                            </a>
+                            <a href="{{url('/order/complete')}}">
+                                <li class="list-group-item bg-dark text-white">
+                                    Your Complete Order List
+                                </li>
+                            </a>
+                            <a href="{{url('/profile')}}">
+                                <li class="list-group-item bg-danger text-white">
+                                    Your Profile Info
+                                </li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -108,22 +122,13 @@
                                 All Category
 
                             </li>
+                            @foreach ($category as $c)
                             <li class="list-group-item">
-                                Man Shirts
-                                <span class="badge badge-primary float-right">4</span>
+                                {{$c->name}}
+                                <span class="badge badge-primary float-right">{{$c->product_count}}</span>
                             </li>
-                            <li class="list-group-item">
-                                Man Shirts
-                                <span class="badge badge-primary float-right">4</span>
-                            </li>
-                            <li class="list-group-item">
-                                Man Shirts
-                                <span class="badge badge-primary float-right">4</span>
-                            </li>
-                            <li class="list-group-item">
-                                Man Shirts
-                                <span class="badge badge-primary float-right">4</span>
-                            </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>

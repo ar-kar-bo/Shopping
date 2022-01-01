@@ -2,22 +2,34 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','PageController@index');
 
-//User Auth
-Route::get('/login','User\AuthController@showLogin');
-Route::post('/login','User\AuthController@postLogin');
+Route::group(['middleware'=>'ShareData'],function(){
+    Route::get('/','PageController@index');
 
-Route::get('/register','User\AuthController@showRegister');
-Route::post('/register','User\AuthController@postRegister');
+    #User Auth
+    Route::get('/login','User\AuthController@showLogin');
+    Route::post('/login','User\AuthController@postLogin');
 
-Route::get('/logout','User\AuthController@logout');
+    Route::get('/register','User\AuthController@showRegister');
+    Route::post('/register','User\AuthController@postRegister');
 
-Route::get('/detail','PageController@productDetail');
-Route::get('/cart','PageController@productCart');
-Route::get('/order','PageController@productOrder');
-Route::get('/profile','PageController@profile');
+    Route::get('/logout','User\AuthController@logout');
 
+    //product
+    Route::get('/product/{slug}','PageController@detail');
+
+    Route::get('/product/cart/add/{slug}','PageController@addToCart');
+    Route::get('/cart','PageController@cart');
+
+    Route::get('/order/make','PageController@makeOrder');
+    Route::get('/order','PageController@order');
+
+    Route::get('/profile','PageController@profile');
+});
+
+
+
+//admin route
 Route::get('/admin/login','Admin\AuthController@showLogin');
 Route::post('/admin/login','Admin\AuthController@postLogin');
 
