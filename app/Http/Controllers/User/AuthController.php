@@ -40,24 +40,57 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
-        $file = $request->file('image');
-        $file_name = uniqid(time()).$file->getClientOriginalName();
-        $file_path = 'image/'.$file_name;
-        $file->storeAs('image',$file_name);
+        if($request->new_pw === $request->con_pw){
+            $file = $request->file('image');
+            $file_name = uniqid(time()).$file->getClientOriginalName();
+            $file_path = 'image/'.$file_name;
+            $file->storeAs('image',$file_name);
 
-        User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
-            'image'=>$file_path
-        ]);
-        return redirect(url('/login'))->with('success','Register Success. Please Login!');
+            User::create([
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'password'=>Hash::make($request->con_pw),
+                'image'=>$file_path
+            ]);
+            return redirect(url('/login'))->with('success','Register Success. Please Login!');
+                User::where('id',Auth::user()->id)->update([
+                    'password'=>Hash::make($request->con_pw)
+                ]);
+        }else{
+            return redirect(url('/register'))->with('danger','Password and confirm password are not same!');
+        }
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect(url('/login'));
+    }
+
+    public function privacy()
+    {
+     return view('user.auth.privacy');
+    }
+
+    public function update(Request $request)
+    {
+
+        $current_password = $request->cur_pw;
+        if(Auth::attempt(['email'=>Auth::user()->email,'password'=>$request->cur_pw])){
+            $new_password = $request->new_pw;
+            $confirm_password = $request->con_pw;
+            if($request->new_pw === $request->con_pw){
+                User::where('id',Auth::user()->id)->update([
+                    'password'=>Hash::make($request->con_pw)
+                ]);
+                return redirect()->back()->with('success','Success Changed Password!');
+            }else{
+                return redirect()->back()->with('danger','Password and confirm password are not same!');
+            }
+
+        }else{
+            return redirect()->back()->with('danger','Incorrect Password!');
+        }
     }
 
 

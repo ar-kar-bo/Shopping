@@ -30,6 +30,9 @@ Route::group(['middleware'=>'ShareData'],function(){
 
     Route::get('/profile','PageController@profile');
     Route::put('/profile/update','PageController@update');
+
+    Route::get('/privacy','User\AuthController@privacy');
+    Route::post('/privacy/update','User\AuthController@update');
 });
 
 

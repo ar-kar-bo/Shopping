@@ -1,7 +1,7 @@
 @extends('user.layout.master')
 @section('content')
             <div class="card-header">
-                Your Profile
+                Profile
             </div>
             <div class="card-body">
                 <form action="{{url('/profile/update')}}" method="post" enctype="multipart/form-data">

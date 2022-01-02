@@ -111,6 +111,18 @@
                                     Your Profile Info
                                 </li>
                             </a>
+                            <a href="{{url('/privacy')}}">
+                                <li class="list-group-item bg-danger text-white">
+                                    Change Password
+                                </li>
+                            </a>
+                            @if (Auth::user()->role == 'admin')
+                            <a href="{{url('/admin')}}">
+                                <li class="list-group-item bg-danger text-white">
+                                    Page Adminstration
+                                </li>
+                            </a>
+                            @endif
                         </ul>
                     </div>
                 </div>

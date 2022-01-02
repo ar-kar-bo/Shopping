@@ -32,6 +32,9 @@
                             <a href="{{url('/admin')}}">
                                 <li class="list-group-item">Dashboard</li>
                             </a>
+                            <a href="{{url('/')}}">
+                                <li class="list-group-item">View Home</li>
+                            </a>
                             <a href="{{route('admin.category.index')}}">
                                 <li class="list-group-item">Category</li>
                             </a>
