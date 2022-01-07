@@ -130,10 +130,12 @@
                 <div class="card">
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item bg-primary text-white">
-                                All Category
+                            <a href="{{url('/')}}">
+                                <li class="list-group-item bg-primary text-white">
+                                    All Category
 
-                            </li>
+                                </li>
+                            </a>
                             @foreach ($category as $c)
                             <a href="{{url('/product/category/'.$c->slug)}}">
                                 <li class="list-group-item">
